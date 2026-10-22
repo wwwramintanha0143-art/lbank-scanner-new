@@ -6,16 +6,14 @@ workflow_dispatch:
 jobs:
 build:
 runs-on: ubuntu-latest
-
 steps:
-  - name: Checkout repository
-    uses: actions/checkout@v4
+- name: Checkout repository
+uses: actions/checkout@v4
 
   - name: Extract Android project
     run: |
       unzip -o LBankScannerAndroid_project_clean.zip
       test -f LBankScannerAndroid/app/build.gradle.kts
-      grep -A 5 'defaultConfig {' LBankScannerAndroid/app/build.gradle.kts
 
   - name: Set up Java
     uses: actions/setup-java@v4
